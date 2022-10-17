@@ -13,14 +13,14 @@ const { NotImplementedError } = require('../extensions/index.js');
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  *
  */
- function transform(/* arr */) {
-    throw new NotImplementedError('Not implemented');
+ //function transform(/* arr */) {
+ //   throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
-  }
+ // }
 
-/*
+
 function transform(arr) {
-  let arrBase = arr.concat();
+
   let arrModified = [];
   let j;
 
@@ -29,6 +29,7 @@ function transform(arr) {
       return "'arr' parameter must be an instance of the Array!";
   }
   else {
+      let arrBase = arr.concat();
       for (let i = 0; i < arrBase.length; i++) {
           j = 0;
           //console.log(arr[i].toString());
@@ -73,7 +74,7 @@ function discFunc(i) {
   console.log(arrModified);
   return arrModified;
 }
-*/
+
 module.exports = {
   transform
 };
