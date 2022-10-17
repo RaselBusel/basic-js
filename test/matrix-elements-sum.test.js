@@ -12,13 +12,13 @@ describe('Matrix elements sum', () => {
       [0, 1, 1, 2],
       [0, 5, 0, 0],
       [2, 0, 3, 3],
-    ]), 9);
+    ]), 17);
 
     assert.strictEqual(getMatrixElementsSum([
       [1, 2, 3, 4],
       [0, 5, 0, 0],
       [2, 0, 3, 3],
-    ]), 15);
+    ]), 23);
 
     assert.strictEqual(getMatrixElementsSum([
       [1, 1, 1],
@@ -35,6 +35,6 @@ describe('Matrix elements sum', () => {
       [5],
       [0],
       [2],
-    ]), 6);
+    ]), 8);
   });
 });

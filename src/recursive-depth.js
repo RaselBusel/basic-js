@@ -12,44 +12,41 @@ const { NotImplementedError } = require('../extensions/index.js');
  * depthCalc.calculateDepth([[[]]]) => 3
  *
  */
-class DepthCalculator {
+ class DepthCalculator {
 
-  constructor() {
-      this.count = 1;
-      this.arrDeep = [];
-      this.maxDeep;
-  }
+    calculateDepth(array) {
 
-  calculateDepth(array) {
+        let count = 1;
+        let arrDeep = [];
+        let maxDeep;
 
-      this.diveInto(array);
-      this.maxDeep = Math.max(...this.arrDeep);
+        diveInto(array);
 
-      return this.maxDeep;
-  }
+        function diveInto(array) {
 
-  diveInto(array) {
+            for (let i = 0; i <= array.length; i++) {
+                if ((array.length == 0) || (array == [])) {
+                    //console.log('empty');
+                    arrDeep.push(count);
+                    count--;
+                }
+                else if ( Array.isArray(array[i]) ) {
+                    count++;
+                    diveInto(array[i]);
+                    if (i == array.length - 1) {
+                        count--;
+                    }
+                }
+                else if (i == array.length - 1) {
+                    arrDeep.push(count);
+                    count--;
+                }
+            }
+        }
 
-      for (let i = 0; i <= array.length; i++) {
-          if ((array.length == 0) || (array == [])) {
-              console.log('empty');
-              this.arrDeep.push(this.count);
-              this.count--;
-          }
-          else if ( Array.isArray(array[i]) ) {
-              this.count++;
-              this.diveInto(array[i]);
-              if (i == array.length - 1) {
-                  this.count--;
-              }
-          }
-          else if (i == array.length - 1) {
-              this.arrDeep.push(this.count);
-              this.count--;
-          }
-      }
-  }
-
+        maxDeep = Math.max(...arrDeep);
+        return maxDeep;
+    }
 }
 
 let depthCalc = new DepthCalculator();
